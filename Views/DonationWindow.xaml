@@ -1,0 +1,26 @@
+<Window x:Class="NetPulseOverlay.Views.DonationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Support NetSpeed Live"
+        Width="320"
+        SizeToContent="Height"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow"
+        ShowInTaskbar="False">
+    <StackPanel Margin="16">
+        <TextBlock Text="Support NetSpeed Live" FontSize="18" FontWeight="SemiBold" HorizontalAlignment="Center" />
+        <TextBlock Text="Scan this QR code using any UPI app."
+                   TextAlignment="Center" Margin="0,8,0,10" TextWrapping="Wrap" />
+        <Image x:Name="QrImage" Width="220" Height="220" Stretch="Fill" HorizontalAlignment="Center" />
+        <TextBlock Text="UPI ID" HorizontalAlignment="Center" Margin="0,12,0,2" Foreground="#FF666666" />
+        <TextBlock x:Name="UpiIdText" FontSize="15" FontWeight="SemiBold" HorizontalAlignment="Center" />
+        <Button x:Name="CopyButton" Content="Copy UPI ID" Padding="12,5" HorizontalAlignment="Center" Margin="0,8,0,0" />
+        <TextBlock Text="Thank you for supporting development."
+                   TextAlignment="Center" Margin="0,12,0,0" TextWrapping="Wrap" />
+        <TextBlock Text="Optional · donations are processed through UPI, not through Microsoft."
+                   TextAlignment="Center" FontSize="11" Foreground="#FF888888"
+                   Margin="0,6,0,0" TextWrapping="Wrap" />
+        <Button x:Name="CloseButton" Content="Close" IsCancel="True" Padding="12,5" HorizontalAlignment="Center" Margin="0,10,0,0" />
+    </StackPanel>
+</Window>

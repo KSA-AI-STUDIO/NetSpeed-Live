@@ -1,0 +1,46 @@
+# ─── .NET build output ────────────────────────────────────────────────
+bin/
+obj/
+publish/
+
+# ─── Visual Studio / user/workspace ──────────────────────────────────
+.vs/
+.vscode/
+*.user
+*.suo
+*.userprefs
+*.sln.DotSettings.user
+
+# ─── JetBrains / Rider ───────────────────────────────────────────────
+.idea/
+*.sln.iml
+
+# ─── Temporary / scratch files ───────────────────────────────────────
+tmp-*
+*.tmp
+*.bak
+*.orig
+*_old
+capture-temp-*
+scratch-*
+
+# ─── Secrets / signing material (never commit) ───────────────────────
+*.pfx
+*.p12
+*.snk
+*.key
+*.pem
+*.cer
+*.crt
+.env
+.env.*
+
+# ─── Generated release binaries ──────────────────────────────────────
+# Large build/installer outputs are NOT part of the source repository.
+# They are released as GitHub Release assets instead.
+# Maintainable release text (RELEASE-NOTES, GITHUB-RELEASE-CHECKLIST)
+# remains committed under Release/.
+Release/NetSpeedLive-*.exe
+Release/NetSpeedLive-*.zip
+Release/NetSpeedLive-*-win-x64/
+Release/*.sha256

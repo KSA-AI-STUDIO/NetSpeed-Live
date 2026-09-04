@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <!-- WinForms is enabled solely for its battle-tested NotifyIcon +
+         ContextMenuStrip tray stack, which runs inside the WPF message loop.
+         No external NuGet package is required for the tray icon. -->
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>NetPulseOverlay</RootNamespace>
+    <AssemblyName>NetPulseOverlay</AssemblyName>
+    <ApplicationIcon>Assets\app.ico</ApplicationIcon>
+    <Version>1.1.0</Version>
+    <Product>NetSpeed Live</Product>
+    <Company>KSA AI STUDIO</Company>
+    <Authors>KSA AI STUDIO</Authors>
+    <Copyright>© 2026 KSA AI STUDIO</Copyright>
+    <Description>Lightweight real-time network upload and download speed monitor for Windows. Developed by KSA AI STUDIO.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Embeds the icon into the assembly so TrayService can load it at
+         runtime via the pack URI. -->
+    <Resource Include="Assets\app.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Founder and Contact have no standard Windows file-property fields, so
+         they are embedded as assembly metadata attributes (visible in the
+         About dialog and via reflection). -->
+    <AssemblyMetadata Include="Founder" Value="Ashutosh Praharaj" />
+    <AssemblyMetadata Include="Contact" Value="ksaaistudio@outlook.com" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Offline QR generation for the UPI donation dialog (no network use,
+         no external service). Reputable, widely used, MIT-licensed. -->
+    <PackageReference Include="QRCoder" Version="1.4.3" />
+  </ItemGroup>
+
+</Project>

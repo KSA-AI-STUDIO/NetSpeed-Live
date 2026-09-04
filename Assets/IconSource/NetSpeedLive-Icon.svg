@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- NetSpeed Live — Signal Radar icon master (Concept 7) -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0D1522"/>
+      <stop offset="1" stop-color="#18294A"/>
+    </linearGradient>
+    <linearGradient id="down" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#00C2FF"/>
+      <stop offset="1" stop-color="#0A84FF"/>
+    </linearGradient>
+    <linearGradient id="up" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#A6FF00"/>
+      <stop offset="1" stop-color="#32D74B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded-square deep-navy background -->
+  <rect x="2" y="2" width="252" height="252" rx="58" fill="url(#bg)" stroke="#3D5A8F" stroke-opacity="0.78" stroke-width="2.5"/>
+
+  <!-- Radar arcs (upper portion, opening downward) -->
+  <g fill="none" stroke="#7FD0FF" stroke-linecap="round">
+    <path d="M 41.5 139.3 A 90 90 0 0 1 214.5 139.3" stroke-opacity="0.47" stroke-width="13"/>
+    <path d="M 68.0 142.0 A 62 62 0 0 1 188.0 142.0" stroke-opacity="0.71" stroke-width="14"/>
+    <path d="M 95.2 127.1 A 34 34 0 0 1 160.8 127.1" stroke-opacity="0.92" stroke-width="15"/>
+  </g>
+  <circle cx="128" cy="116" r="30" fill="#7FD0FF" fill-opacity="0.22"/>
+  <circle cx="128" cy="116" r="13" fill="#EAF6FF"/>
+
+  <!-- DOWNLOAD arrow (first, left, blue/cyan) -->
+  <path d="M 67 136 h 34 v 32 h 27 l -44 64 l -44 -64 h 27 z"
+        fill="url(#down)" stroke="#05A3FF" stroke-width="9" stroke-linejoin="round"/>
+
+  <!-- UPLOAD arrow (second, right, green) -->
+  <path d="M 155 232 v -32 h -27 l 44 -64 l 44 64 h -27 v 32 z"
+        fill="url(#up)" stroke="#5CEB26" stroke-width="9" stroke-linejoin="round"/>
+</svg>
