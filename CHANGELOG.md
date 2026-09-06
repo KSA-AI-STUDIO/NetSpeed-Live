@@ -3,6 +3,24 @@
 All notable changes to NetSpeed Live are documented here.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.1.0] — 2026-09-03 (Stage 16B — Traffic Color Update)
+
+### Changed
+- **Traffic colors updated**: the download arrow is now **green**
+  (`#4ADE80`→`#16A34A`) and the upload arrow is now **orange**
+  (`#FB923C`→`#EA580C`), in both the Signal Radar icon and all regenerated
+  release assets. Download remains **first** (left / top) and upload
+  **second** (right / bottom) — arrow shapes, directions, order, radar motif
+  and background are unchanged. The overlay itself is unaffected (its text
+  colour is a single user setting, not per-direction colours).
+
+### Changed (assets)
+- `Assets/app.ico` and `Assets/IconSource/NetSpeedLive-Icon-Master.png`
+  regenerated from the updated design; all nine ICO frames preserved
+  (16–48 px DIB, 64–256 px PNG); 16×16 legibility re-verified.
+- Release binaries, installers and checksums for **both** win-x64 and win-x86
+  rebuilt; portable ZIP regenerated.
+
 ## [1.1.0] — 2026-09-03 (Stage 15 — Public Release Preparation & Distribution)
 
 ### Added
@@ -95,7 +113,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Added
 - **Signal Radar application icon** (Concept 7): deep-navy rounded-square tile
   with cyan radar arcs and a centre dot (live monitoring) in the upper portion,
-  a blue/cyan **download arrow first on the left**, and a green **upload arrow
+  a green **download arrow first on the left**, and an orange **upload arrow
   second on the right** — matching the app's download-first display order.
 - `Assets/IconSource/` source assets: `NetSpeedLive-Icon.svg` (vector master)
   and `NetSpeedLive-Icon-Master.png` (256×256 raster master).

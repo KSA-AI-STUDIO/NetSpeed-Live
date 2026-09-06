@@ -6,12 +6,12 @@
       <stop offset="1" stop-color="#18294A"/>
     </linearGradient>
     <linearGradient id="down" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#00C2FF"/>
-      <stop offset="1" stop-color="#0A84FF"/>
+      <stop offset="0" stop-color="#4ADE80"/>
+      <stop offset="1" stop-color="#16A34A"/>
     </linearGradient>
     <linearGradient id="up" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#A6FF00"/>
-      <stop offset="1" stop-color="#32D74B"/>
+      <stop offset="0" stop-color="#FB923C"/>
+      <stop offset="1" stop-color="#EA580C"/>
     </linearGradient>
   </defs>
 
@@ -27,11 +27,11 @@
   <circle cx="128" cy="116" r="30" fill="#7FD0FF" fill-opacity="0.22"/>
   <circle cx="128" cy="116" r="13" fill="#EAF6FF"/>
 
-  <!-- DOWNLOAD arrow (first, left, blue/cyan) -->
+  <!-- DOWNLOAD arrow (first, left, green) -->
   <path d="M 67 136 h 34 v 32 h 27 l -44 64 l -44 -64 h 27 z"
-        fill="url(#down)" stroke="#05A3FF" stroke-width="9" stroke-linejoin="round"/>
+        fill="url(#down)" stroke="#22C55E" stroke-width="9" stroke-linejoin="round"/>
 
-  <!-- UPLOAD arrow (second, right, green) -->
+  <!-- UPLOAD arrow (second, right, orange) -->
   <path d="M 155 232 v -32 h -27 l 44 -64 l 44 64 h -27 v 32 z"
-        fill="url(#up)" stroke="#5CEB26" stroke-width="9" stroke-linejoin="round"/>
+        fill="url(#up)" stroke="#F97316" stroke-width="9" stroke-linejoin="round"/>
 </svg>

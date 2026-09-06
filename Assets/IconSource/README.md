@@ -18,8 +18,8 @@ from this design. It embeds 16/20/24/32/40/48 px as 32-bit BGRA DIB frames and
 - Radar arcs + centre dot: live monitoring identity, upper portion.
 - Blue/cyan **down arrow first (left)** — download.
 - Green **up arrow second (right)** — upload.
-- Palette: `#0A84FF`/`#00C2FF` (download), `#32D74B`/`#A6FF00` (upload),
-  `#0D1522`→`#18294A` navy background, `#7FD0FF`/`#EAF6FF` radar.
+- Palette: `#16A34A`/`#4ADE80` (download, green), `#EA580C`/`#FB923C` (upload,
+  orange), navy background `#0D1522`→`#18294A`, radar `#7FD0FF`/`#EAF6FF`.
 - Below 32 px the smallest radar arc is dropped and strokes are thickened so
   the 16×16 tray rendering stays legible (arrows + one arc + dot).
 

@@ -51,8 +51,8 @@ Built with **C# / .NET 8 / WPF** by **KSA AI STUDIO**.
 - **About window** — product, version, studio, founder, contact, read from
   assembly metadata.
 - **Optional UPI donation** — offline QR (QRCoder) + Copy UPI ID.
-- **Signal Radar icon** — navy rounded square, radar arcs, blue download /
-  green upload arrows; multi-resolution 16–256 px.
+- **Signal Radar icon** — navy rounded square, radar arcs, green download /
+  orange upload arrows; multi-resolution 16–256 px.
 - **Settings persistence** — JSON in `%APPDATA%\NetPulseOverlay\settings.json`
   (atomic writes; corrupt/missing files fall back to defaults).
 
