@@ -21,10 +21,13 @@ unobtrusive.
   multi-monitor-safe restoring.
 - Truly per-user installer — no administrator privileges required.
 - Self-contained — the installer bundles the .NET runtime; no separate install.
+- **Both Windows architectures**: x64 and 32-bit (x86) installers.
 
 ## Installation
 
-1. Download `NetSpeedLive-Setup-1.1.0.exe`.
+1. Download the installer for your system:
+   - `NetSpeedLive-Setup-1.1.0.exe` — **64-bit (x64)** Windows.
+   - `NetSpeedLive-Setup-1.1.0-x86.exe` — **32-bit (x86)** Windows.
 2. Run the installer and follow the wizard (per-user install, no admin needed).
 3. Launch **NetSpeed Live** from the Start Menu, the installer's finish page, or
    the optional desktop shortcut.

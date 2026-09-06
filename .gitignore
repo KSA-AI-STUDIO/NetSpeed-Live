@@ -42,5 +42,5 @@ scratch-*
 # remains committed under Release/.
 Release/NetSpeedLive-*.exe
 Release/NetSpeedLive-*.zip
-Release/NetSpeedLive-*-win-x64/
+Release/NetSpeedLive-*-win-*/
 Release/*.sha256

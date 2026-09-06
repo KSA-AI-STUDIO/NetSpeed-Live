@@ -1,6 +1,11 @@
 # Installer — NetSpeed Live (Inno Setup)
 
-`NetSpeedLive.iss` builds the branded Windows installer.
+Two Inno Setup scripts build the branded Windows installers:
+
+| Script | Target | Output |
+|---|---|---|
+| `NetSpeedLive.iss` | x64 (`win-x64` publish) | `NetSpeedLive-Setup-<version>.exe` |
+| `NetSpeedLive-x86.iss` | x86 (`win-x86` publish) | `NetSpeedLive-Setup-<version>-x86.exe` |
 
 ## Compiling
 
@@ -10,13 +15,12 @@ for this project has it installed per-user at
 
 ```powershell
 & "$env:LOCALAPPDATA\Programs\Inno Setup 6\ISCC.exe" Installer\NetSpeedLive.iss
+& "$env:LOCALAPPDATA\Programs\Inno Setup 6\ISCC.exe" Installer\NetSpeedLive-x86.iss
 ```
 
-Or simply run `Build\Publish.ps1` first, then compile the script — the
-installer packs the published output from
-`Release\NetSpeedLive-<version>-win-x64\`.
-
-Output: `Release\NetSpeedLive-Setup-<version>.exe`
+Or simply run `Build\Publish.ps1` (optionally `-Runtime win-x86`) first, then
+compile the script — each installer packs the published output from
+`Release\NetSpeedLive-<version>-win-x64\` / `-win-x86\`.
 
 ## Behaviour
 
@@ -27,12 +31,21 @@ Output: `Release\NetSpeedLive-Setup-<version>.exe`
 | Start Menu | `NetSpeed Live` shortcut (always created) |
 | Desktop shortcut | Optional task (unchecked by default) |
 | Launch after install | Optional checkbox on the finish page (skipped in silent installs) |
-| Uninstall entry | `NetSpeed Live` in Windows Installed Apps (HKCU) |
+| Uninstall entry | `NetSpeed Live` (x64) / `NetSpeed Live (x86)` in Windows Installed Apps (HKCU) |
 | User settings | `%APPDATA%\NetPulseOverlay\` is **never** modified by install or uninstall |
 | Startup registration | Never written by the installer — owned by the app (`StartupService`, HKCU Run) |
 | Executable | `NetPulseOverlay.exe` (internal assembly name preserved); all user-facing surfaces branded **NetSpeed Live** |
 
+Architecture notes:
+
+- Both scripts use **distinct `AppId`s**, so the two architectures have
+  independent uninstall identities and never collide.
+- The x86 script uses `ArchitecturesAllowed=x86compatible` — the documented
+  default for a 32-bit Setup program, which runs on 32-bit Windows and on x64
+  Windows via WOW64. The x86 payload is genuine x86 throughout (verified via
+  PE machine types).
+
 ## Version sync
 
 `<Version>` in `NetPulseOverlay.csproj` is authoritative. Keep the
-`#define MyAppVersion` in the `.iss` at the same value.
+`#define MyAppVersion` in both `.iss` files at the same value.

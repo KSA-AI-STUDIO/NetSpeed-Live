@@ -1,12 +1,17 @@
-# NetSpeed Live production publish script (Stage 14).
+# NetSpeed Live production publish script.
 #
-# Produces a self-contained Windows x64 release so end users do not need the
-# .NET Desktop Runtime installed. Version is read from NetPulseOverlay.csproj,
-# which is the single authoritative version source.
+# Produces a self-contained Windows build so end users do not need the .NET
+# Desktop Runtime installed. Defaults to the primary x64 target; pass
+# -Runtime win-x86 to produce a 32-bit x86 build. Version is read from
+# NetPulseOverlay.csproj, which is the single authoritative version source.
 #
-# Usage:  powershell -ExecutionPolicy Bypass -File Build\Publish.ps1
+# Usage:
+#   powershell -ExecutionPolicy Bypass -File Build\Publish.ps1            # win-x64
+#   powershell -ExecutionPolicy Bypass -File Build\Publish.ps1 -Runtime win-x86
 param(
-    [string]$Configuration = 'Release'
+    [string]$Configuration = 'Release',
+    [ValidateSet('win-x64', 'win-x86')]
+    [string]$Runtime = 'win-x64'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -22,9 +27,9 @@ $match = Select-String -Path $csprojPath -Pattern '<Version>([^<]+)</Version>'
 if (-not $match) { Write-Error 'Could not read <Version> from NetPulseOverlay.csproj'; exit 1 }
 $version = $match.Matches[0].Groups[1].Value
 
-$outDir = Join-Path $root "Release\NetSpeedLive-$version-win-x64"
+$outDir = Join-Path $root "Release\NetSpeedLive-$version-$Runtime"
 
-Write-Output "NetSpeed Live $version ($Configuration, win-x64, self-contained)"
+Write-Output "NetSpeed Live $version ($Configuration, $Runtime, self-contained)"
 Write-Output "Publish output: $outDir"
 
 # Recreate the output folder safely.
@@ -33,7 +38,7 @@ New-Item -ItemType Directory -Force -Path $outDir | Out-Null
 
 & $dotnet publish (Join-Path $root 'NetPulseOverlay.csproj') `
     -c $Configuration `
-    -r win-x64 `
+    -r $Runtime `
     --self-contained true `
     -p:PublishSingleFile=false `
     -p:PublishReadyToRun=false `
@@ -57,5 +62,5 @@ foreach ($f in $required) {
 
 $fileCount = (Get-ChildItem $outDir -Recurse -File | Measure-Object).Count
 $sizeMb = [math]::Round((Get-ChildItem $outDir -Recurse -File | Measure-Object Length -Sum).Sum / 1MB, 1)
-Write-Output "Publish OK: $fileCount files, $sizeMb MB"
+Write-Output "Publish OK: $fileCount files, $sizeMb MB ($Runtime)"
 Write-Output "SUCCESS"
